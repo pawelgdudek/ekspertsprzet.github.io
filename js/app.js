@@ -13,10 +13,41 @@
   var h = $("#site-header");
   if (h) {
     h.innerHTML = '<div class="wrap hdr"><a class="logo" href="' + root + 'index.html"><span class="logo-ic">' + ico("construction") + '</span><span><b>EKSPERT SPRZĘT</b><small>Wypożyczalnia sprzętu budowlanego</small></span></a>' +
-      '<button class="burger" aria-label="Menu" aria-expanded="false">' + ico("menu") + '</button><nav class="nav">' +
+      (page !== "home" ? '<a class="back-btn" href="' + root + (page === "produkt" ? "katalog.html" : "index.html") + '" aria-label="Wróć" title="Wróć">' + ico("arrow_back") + '</a>' : "") + '<button class="burger" aria-label="Menu" aria-expanded="false">' + ico("menu") + '</button><nav class="nav">' +
       nav.map(function (n) { return '<a href="' + root + n[0] + '"' + (n[2] === page ? ' class="active"' : "") + ">" + n[1] + "</a>"; }).join("") +
       '</nav><a class="btn btn-red hdr-call" href="' + FIRMA.telefonLink + '">' + ico("call") + " Zadzwoń: " + FIRMA.telefon + "</a></div>";
-    var bg = h.querySelector(".burger"); bg.onclick = function () { var o = h.classList.toggle("open"); document.body.classList.toggle("menu-open", o); bg.setAttribute("aria-expanded", o); bg.innerHTML = ico(o ? "close" : "menu"); };
+    var icons = { home: "home", katalog: "construction", cennik: "receipt_long", kontakt: "contact_phone" };
+    var mn = document.createElement("div");
+    mn.id = "mnav"; mn.setAttribute("role", "dialog"); mn.setAttribute("aria-modal", "true"); mn.setAttribute("aria-label", "Menu");
+    mn.innerHTML = '<div class="mn-top"><span class="mn-logo"><span class="logo-ic">' + ico("construction") + '</span><b>EKSPERT SPRZĘT</b></span><button class="mn-close" aria-label="Zamknij menu">' + ico("close") + '</button></div><nav class="mn-links">' +
+      nav.map(function (n) { return '<a href="' + root + n[0] + '"' + (n[2] === page ? ' class="active" aria-current="page"' : "") + '>' + ico(icons[n[2]]) + '<span>' + n[1] + '</span>' + ico("chevron_right") + "</a>"; }).join("") +
+      '<a class="mn-call" href="' + FIRMA.telefonLink + '">' + ico("call") + '<span><small>Zadzwoń, zapytaj, zarezerwuj!</small>' + FIRMA.telefon + '</span></a></nav>';
+    document.body.appendChild(mn);
+    var bb = h.querySelector(".back-btn");
+    if (bb) bb.addEventListener("click", function (e) {
+      var same = false;
+      try { same = document.referrer && new URL(document.referrer).origin === location.origin && document.referrer !== location.href; } catch (x) {}
+      if (location.protocol === "file:") same = document.referrer.indexOf("file:") === 0 && document.referrer !== location.href;
+      if (same && history.length > 1) { e.preventDefault(); history.back(); }
+    });
+    var bg = h.querySelector(".burger");
+    var savedY = 0;
+    function setMenu(o) {
+      if (o === mn.classList.contains("open")) return;
+      var bs = document.body.style;
+      if (o) { savedY = window.pageYOffset; bs.position = "fixed"; bs.top = -savedY + "px"; bs.left = "0"; bs.right = "0"; bs.width = "100%"; }
+      mn.classList.toggle("open", o); document.body.classList.toggle("menu-open", o); bg.setAttribute("aria-expanded", o);
+      if (!o) { bs.position = ""; bs.top = ""; bs.left = ""; bs.right = ""; bs.width = ""; var de = document.documentElement, sb = de.style.scrollBehavior; de.style.scrollBehavior = "auto"; window.scrollTo(0, savedY); de.style.scrollBehavior = sb; }
+    }
+    bg.onclick = function () { setMenu(true); };
+    mn.querySelector(".mn-close").onclick = function () { setMenu(false); bg.focus({ preventScroll: true }); };
+    mn.querySelectorAll("a").forEach(function (x) { x.addEventListener("click", function (e) {
+      var u = new URL(x.href, location.href);
+      setMenu(false);
+      if (u.hash && u.pathname === location.pathname) { e.preventDefault(); history.replaceState(null, "", u.hash); requestAnimationFrame(function () { requestAnimationFrame(function () { goTo(u.hash, true); }); }); }
+    }); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+    window.addEventListener("resize", function () { if (window.innerWidth > 760) setMenu(false); });
   }
   var f = $("#site-footer");
   if (f) {
@@ -44,13 +75,43 @@
       "</div></article>";
   }
 
+  /* ---------- przewijanie do kotwic (np. #kontakt) z uwzględnieniem nagłówka ---------- */
+  function goTo(hash, smooth) {
+    var t = hash && hash.length > 1 && document.getElementById(hash.slice(1));
+    if (!t) return;
+    var rmm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var hh = h ? h.getBoundingClientRect().height : 0;
+    var y = t.getBoundingClientRect().top + window.pageYOffset - hh - 12;
+    window.scrollTo({ top: Math.max(0, y), behavior: smooth && !rmm ? "smooth" : "auto" });
+  }
+  document.addEventListener("click", function (e) {
+    var x = e.target.closest && e.target.closest('a[href*="#"]'); if (!x || x.closest("#mnav")) return;
+    var u = new URL(x.href, location.href);
+    if (u.pathname === location.pathname && u.hash.length > 1 && document.getElementById(u.hash.slice(1))) { e.preventDefault(); history.replaceState(null, "", u.hash); goTo(u.hash, true); }
+  });
+  if (location.hash.length > 1 && document.getElementById(location.hash.slice(1)) && !/^#(ze-|z-|bez-|solo)/.test(location.hash)) {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    goTo(location.hash, false);
+    window.addEventListener("load", function () { goTo(location.hash, false); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { goTo(location.hash, false); });
+  }
+
+  /* ---------- przycisk "do góry" ---------- */
+  var top = document.createElement("button");
+  top.className = "to-top"; top.type = "button"; top.setAttribute("aria-label", "Przewiń do góry"); top.title = "Do góry";
+  top.innerHTML = ico("arrow_upward");
+  document.body.appendChild(top);
+  top.onclick = function () { var r = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; window.scrollTo({ top: 0, behavior: r ? "auto" : "smooth" }); };
+  function topVis() { top.classList.toggle("show", window.pageYOffset > window.innerHeight * 0.9); }
+  window.addEventListener("scroll", topVis, { passive: true }); topVis();
+
   /* ---------- mobilny przycisk "Zadzwoń" ---------- */
   var fab = document.createElement("a");
   fab.className = "fab-call"; fab.href = FIRMA.telefonLink; fab.setAttribute("aria-label", "Zadzwoń " + FIRMA.telefon);
   fab.innerHTML = ico("call") + "<span>Zadzwoń, zapytaj, zarezerwuj!</span><b>" + FIRMA.telefon + "</b>";
   document.body.appendChild(fab);
   window.addEventListener("scroll", function () { document.body.classList.toggle("scrolled", window.scrollY > 10); }, { passive: true });
-  if (h) h.querySelectorAll(".nav a").forEach(function (x) { x.addEventListener("click", function () { h.classList.remove("open"); document.body.classList.remove("menu-open"); }); });
+  
 
   /* ---------- strona główna ---------- */
   if (page === "home") { $("#popular").innerHTML = PRODUKTY.map(card).join(""); }

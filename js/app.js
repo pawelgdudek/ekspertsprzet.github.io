@@ -143,10 +143,23 @@
     });
   }
 
+  /* ---------- akcesoria: wspólny widok (cennik + strona produktu) ---------- */
+  function accBody(a) {
+    var out = "";
+    if (a.pozycje && a.pozycje.length) out += "<ul>" + a.pozycje.map(function (x) { return "<li><span>" + x[0] + "</span><b>" + x[1] + "</b></li>"; }).join("") + "</ul>";
+    if (a.tabela) {
+      var hd = a.tabela.naglowki;
+      out += '<div class="acc-tw"><table class="acc-t"><thead><tr>' + hd.map(function (x) { return "<th>" + x + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        a.tabela.wiersze.map(function (r) { return "<tr>" + r.map(function (c, i) { return (i ? '<td data-l="' + hd[i] + '">' : '<th scope="row">') + c + (i ? "</td>" : "</th>"); }).join("") + "</tr>"; }).join("") + "</tbody></table></div>";
+    }
+    return out;
+  }
+  function accById(id) { return AKCESORIA.filter(function (x) { return x.id === id; })[0]; }
+
   /* ---------- cennik akcesoriów ---------- */
   if (page === "cennik") {
     $("#acc").innerHTML = AKCESORIA.map(function (a) {
-      return '<section class="acc"><div class="acc-h"><span class="acc-img"><img loading="lazy" src="' + root + 'img/akcesoria/' + a.img + '" alt="' + a.tytul + '" width="400" height="400"></span><h3>' + a.tytul + "</h3></div><p>" + a.opis + "</p>" + (a.pozycje.length ? "<ul>" + a.pozycje.map(function (x) { return "<li><span>" + x[0] + "</span><b>" + x[1] + "</b></li>"; }).join("") + "</ul>" : "") + "</section>";
+      return '<section class="acc' + (a.tabela ? " acc-wide" : "") + '" id="akc-' + a.id + '"><div class="acc-h"><span class="acc-img"><img loading="lazy" src="' + root + 'img/akcesoria/' + a.img + '" alt="' + a.tytul + '" width="400" height="400"></span><h3>' + a.tytul + "</h3></div><p>" + a.opis + "</p>" + accBody(a) + "</section>";
     }).join("");
   }
 
@@ -169,7 +182,7 @@
       '<div class="reserve"><div><a href="' + FIRMA.telefonLink + '" style="text-decoration:none"><b>' + ico("phone_in_talk") + " Zadzwoń, zapytaj, zarezerwuj!</b></a><small>Rezerwacja telefoniczna.</small></div><a class=\"btn btn-red\" href=\"" + FIRMA.telefonLink + '">' + ico("call") + " " + FIRMA.telefon + "</a></div></div></div></div>" +
       '<div class="' + (hasUses ? "two" : "") + '"><section class="panel"><h2>' + ico("tune") + ' Parametry techniczne</h2><table class="specs" id="specs"></table></section>' +
       (hasUses ? '<section class="panel" id="usesp"><h2>' + ico("construction") + ' Przeznaczenie</h2><ul class="checks" id="uses">' + p.zastosowanie.map(function (z) { return "<li>" + z + "</li>"; }).join("") + "</ul></section>" : "") + "</div>" +
-      (p.akcesoria && p.akcesoria.length ? '<section class="panel"><h2>' + ico("extension") + ' Akcesoria i koszty zużycia</h2><table class="specs">' + p.akcesoria.map(function (a) { return "<tr><td>" + a[0] + "</td><td><b class=red>" + a[1] + "</b></td></tr>"; }).join("") + '</table><p><a class="acc-link" href="' + root + 'cennik.html">' + ico("receipt_long") + ' Pełny cennik akcesoriów i kosztów zużycia →</a></p></section>' : "") +
+      (p.akcesoria && p.akcesoria.length ? '<section class="panel pacc"><h2>' + ico("extension") + ' Akcesoria i koszty zużycia</h2>' + p.akcesoria.map(function (id) { var x = accById(id); return x ? (p.akcesoria.length > 1 ? "<h3>" + x.tytul + "</h3>" : "") + "<p class=small>" + x.opis + "</p>" + accBody(x) : ""; }).join("") + '<p><a class="acc-link" href="' + root + 'cennik.html#akc-' + p.akcesoria[0] + '">' + ico("receipt_long") + ' Pełny cennik akcesoriów i kosztów zużycia →</a></p></section>' : "") +
       '<p><a class="btn btn-dark" href="' + root + 'katalog.html">' + ico("arrow_back") + " Wróć do katalogu</a></p>";
     $("#product").innerHTML = html;
     function show(o) {

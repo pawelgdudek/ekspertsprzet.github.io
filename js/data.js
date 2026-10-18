@@ -34,7 +34,7 @@ var PRODUKTY = [
     ceny: { p1: 180, p23: 160, p4: 140 }, kaucja: [["Kaucja zwrotna", 500]],
     parametry: [["Model", "RIO-R PRO 1208"], ["Kod produktu", "8.052.0864"], ["Typ", "Ciepłowodna, elektryczna, podgrzewanie wody ropą"], ["Ciśnienie", "160 bar"], ["Wydatek wody", "450 l/h"], ["Temperatura wody", "90°C"], ["Moc", "2500 W"], ["Waga", "43 kg"]],
     zastosowanie: [],
-    akcesoria: [["Detergent do myjki ciśnieniowej", "10 zł / 1 litr"]]
+    akcesoria: ["myjka"]
   },
   {
     id: "spawarka-przemyslowa", lp: 2, kategoria: "spawarki", tag: "Spawarki",
@@ -44,7 +44,7 @@ var PRODUKTY = [
     ceny: { p1: 180, p23: 150, p4: 120 }, kaucja: [["Kaucja (bez butli gazowej)", 500], ["Kaucja (z butlą gazową)", 700]],
     parametry: [["Zasilanie", "230 V"], ["Moc", "6,6 kW"], ["Zabezpieczenie sieci", "C25A"], ["Prąd pobierany z sieci", "31 A"], ["Maks. prąd spawania", "230 A"], ["Nominalny prąd spawania", "145 A"], ["Cykl pracy (MIG / TIG / MMA)", "60%"], ["Zakres prądu MIG/MAG", "25–230 A"], ["Zakres prądu TIG DC", "10–200 A"], ["Zakres prądu MMA", "10–200 A"], ["Synergia / puls / lutospawanie", "Tak / Tak / Tak"], ["Tryby 2T/4T, SPOT/S2T/S4T", "Tak"], ["Hot Start, Arc Force, VRD (MMA)", "Tak"], ["Podajnik drutu", "4-rolkowy"], ["Szpula drutu", "2 kg i 5 kg (D200)"], ["Drut stalowy", "0,6–1,0 mm"], ["Drut aluminiowy", "0,8–1,2 mm"], ["Drut samoosłonowy", "0,8–1,2 mm"], ["Drut do lutospawania", "0,8–1,0 mm"], ["Napięcie biegu jałowego", "80 V"], ["Pre-gas / Post-gas", "0,1–2,0 s / 0–10 s"], ["Stopień ochrony", "IP23S"], ["Chłodzenie", "Wentylator"], ["Kabel zasilający", "300 cm"], ["Wymiary", "795 × 215 × 435 mm"], ["Waga", "20 kg"]],
     zastosowanie: [],
-    akcesoria: [["Gaz (MB 15) – 1/2 butli", "30 zł"], ["Gaz (MB 15) – pełna butla", "60 zł"], ["Drut spawalniczy", "30 zł / 1 kg"], ["Elektrody", "20 zł / 1 kg"]]
+    akcesoria: ["spawalnicze"]
   },
   {
     id: "spawarka-mig-mag", lp: 3, kategoria: "spawarki", tag: "Spawarki",
@@ -54,7 +54,7 @@ var PRODUKTY = [
     ceny: { p1: 80, p23: 70, p4: 60 }, kaucja: [["Kaucja (bez butli gazowej)", 300], ["Kaucja (z butlą gazową)", 500]],
     parametry: [["Zasilanie", "230 V; 50 Hz (1 faza)"], ["Zabezpieczenie sieci", "C20A"], ["Moc", "6,2 kW"], ["Zakres prądu spawania", "30–200 A (MIG) / 30–180 A (MMA)"], ["Prąd przy pracy 60%", "200 A (MIG) / 180 A (MMA)"], ["Prąd przy pracy 100%", "130 A"], ["Napięcie stanu jałowego", "43 V"], ["Drut stalowy / nierdzewny", "0,6–1,0 mm"], ["Drut aluminiowy", "0,8–1,0 mm"], ["Drut samoosłonowy", "0,8–1,2 mm"], ["Elektroda", "1,6–4,0 mm"], ["Szpula drutu", "1–5 kg (D100 / D200)"], ["Stopień ochrony", "IP 21S"], ["Waga", "DO_UZUPELNIENIA"]],
     zastosowanie: [],
-    akcesoria: [["Gaz (MB 15) – 1/2 butli", "30 zł"], ["Gaz (MB 15) – pełna butla", "60 zł"], ["Drut spawalniczy", "30 zł / 1 kg"], ["Elektrody", "20 zł / 1 kg"]]
+    akcesoria: ["spawalnicze"]
   },
   {
     id: "pila-pierscieniowa", lp: 4, kategoria: "pily", tag: "Piły",
@@ -71,7 +71,7 @@ var PRODUKTY = [
     ],
     parametry: [["Zasilanie", "Elektryczne, 230 V"], ["Silnik", "Bezszczotkowy"], ["Moc znamionowa", "3000 W"], ["Moc maks. robocza", "6000 W"], ["Prędkość obrotowa (bez obciążenia)", "ok. 1300 obr./min"], ["Średnica pierścienia tnącego", "410 mm"], ["Maks. głębokość cięcia", "ok. 290 mm"], ["Min. odległość cięcia od ściany", "ok. 1 cm"], ["Cięcie", "Na mokro (z użyciem wody)"], ["Rękojeść", "Uchwyt pomocniczy + obrotowy (cięcie pionowe i poziome)"], ["Prowadzenie pierścienia", "Zębata prowadnica stabilizująca, kółka prowadzące"], ["Bezpieczeństwo", "Niskie obroty + system żyroskopowy GYRO AUTO OFF (automatyczne wyłączenie napędu przy gwałtownym ruchu / odrzucie), start dwuetapowy, osłona przeciwrozbryzgowa"], ["Wyświetlacz", "Licznik czasu pracy"], ["Montaż pierścienia", "Szybki, bez regulacji i śrub nastawczych"], ["Waga", "10 kg"], ["Szyna (wariant Z SZYNĄ)", "Zębata prowadnica TrendEco Profi Rail"]],
     zastosowanie: ["Beton", "Żelbet", "Gazobeton", "Cegła", "Bloczki fundamentowe", "Otwory drzwiowe i okienne", "Dylatacje i kanały techniczne", "Materiały mineralne"],
-    akcesoria: [["Zużycie tarczy diamentowej do 230 mm", "20 zł"], ["Zużycie tarczy 231–350 mm", "30 zł"], ["Zużycie tarczy powyżej 350 mm", "40 zł"]]
+    akcesoria: ["pila-pierscieniowa"]
   },
   {
     id: "pilarka-ukosowa", lp: 5, kategoria: "pily", tag: "Ukośnice",
@@ -88,7 +88,7 @@ var PRODUKTY = [
     ],
     parametry: [["Piła tarczowa", "305 × 30 mm"], ["Maks. szerokość cięcia 90° / 45°", "305 / 215 mm"], ["Maks. głębokość cięcia 90° / 45°", "110 / 67 mm"], ["Regulacja stołu obrotowego lewo / prawo", "50° / 60°"], ["Pochylenie piły lewo / prawo", "47° / 47°"], ["Moc znamionowa S1 100% / S6 20%", "1600 W / 2000 W"], ["Prędkość obrotowa jałowa / pod obciążeniem", "3700 / 3000 obr./min"], ["Prędkość cięcia", "59 m/s"], ["Powierzchnia odkładcza", "345 × 770 mm"], ["Wymiary", "780 × 500 × 657 mm"], ["Długość kabla", "2 m"], ["Ciężar (bez stołu)", "18,6 kg"]],
     zastosowanie: [],
-    akcesoria: [["Zużycie tarczy do ukośnicy do 216 mm", "20 zł"], ["Zużycie tarczy do ukośnicy do 305 mm", "30 zł"]]
+    akcesoria: ["tarcza-305"]
   },
   {
     id: "wiertnica-diamentowa", lp: 6, kategoria: "wiertnice", tag: "Wiertnice",
@@ -106,7 +106,7 @@ var PRODUKTY = [
     ],
     parametry: ESD162,
     zastosowanie: ["Na sucho: cegła, silikaty, klinkier, mury wapienno-piaskowe", "Na mokro: beton, beton zbrojony, asfalt, kamień naturalny", "Otwory w technice sanitarnej, grzewczej i wentylacyjnej"],
-    akcesoria: [["Korona diamentowa do 52 mm (zużycie)", "30 zł"], ["Korona 53–82 mm", "40 zł"], ["Korona 83–112 mm", "50 zł"], ["Korona 113–132 mm", "60 zł"], ["Korona powyżej 132 mm", "70 zł"]]
+    akcesoria: ["korony"]
   },
   {
     id: "odkurzacz-przemyslowy", lp: 7, kategoria: "myjki", tag: "Odkurzacze",
@@ -116,7 +116,7 @@ var PRODUKTY = [
     ceny: { p1: 90, p23: 75, p4: 60 }, kaucja: [["Kaucja zwrotna", 300]],
     parametry: [["Moc silnika", "1600 W"], ["Pojemność zbiornika", "35 l"], ["Oczyszczanie filtra", "Elektromagnetyczne w czasie pracy"], ["Praca bez worka z gipsem", "Tak"], ["Praca na mokro", "Tak"], ["Gniazdo narzędziowe", "Sieciowe"], ["Regulacja siły ssania", "Płynna"], ["Funkcja wydmuchu", "Tak"], ["Podciśnienie", "280 (jednostka do potwierdzenia)"], ["Długość węża ssącego", "3,20 m"], ["Wąż antystatyczny", "Nie"], ["Wymiary (dł. × szer. × wys.)", "530 × 400 × 560 mm"], ["Waga z opakowaniem", "20,89 kg"]],
     zastosowanie: [],
-    akcesoria: [["Worki do odkurzacza", "10 zł / szt."]]
+    akcesoria: ["odkurzacz"]
   },
   {
     id: "agregat-malarski", lp: 8, kategoria: "agregaty", tag: "Agregaty",
@@ -126,7 +126,7 @@ var PRODUKTY = [
     ceny: { p1: 160, p23: 140, p4: 120 }, kaucja: [["Kaucja zwrotna", 500]],
     parametry: [["Typ", "Tłokowy (bezpowietrzny), malarski"], ["Moc", "2200 W"], ["Silnik", "Bezszczotkowy"], ["Wydajność pompy", "2,80 l/min"], ["Maks. ciśnienie robocze", "227 bar / 3290 PSI"], ["Ciśnienie regulowane elektronicznie", "Tak"], ["Płynny tryb pracy", "Tak"], ["Zasilanie", "230 V / 50 Hz"], ["Zalecane zabezpieczenie", "C20"], ["Maks. rozmiar dyszy", "1 pistolet – 0,025″, 2 pistolety – 0,017″"], ["Wąż", "15 m – 1/4\" (maks. 60 m)"], ["Dysze w zestawie", "517, 519"], ["Optymalna powierzchnia malowania", "50 000 m²/rok"], ["Wymiary (D × Sz × W)", "420 × 350 × 450 mm"], ["Waga", "16 kg"]],
     zastosowanie: [],
-    akcesoria: [["Dysza agregatu", "20 zł / szt."], ["Czyszczenie agregatu", "50 zł"]]
+    akcesoria: ["agregat"]
   },
   {
     id: "wiertnica-glebowa", lp: 9, kategoria: "wiertnice", tag: "Wiertnice",
@@ -136,28 +136,34 @@ var PRODUKTY = [
     ceny: { p1: 70, p23: 60, p4: 50 }, kaucja: [["Kaucja zwrotna", 300]],
     parametry: [["Moc silnika", "6 KM"], ["Silnik", "2-suwowy, chłodzony powietrzem"], ["Pojemność skokowa", "52 cm³"], ["Obroty silnika maks.", "7000 obr./min"], ["Gaźnik", "Membranowy"], ["Rozruch", "Ręczny"], ["Praca", "Ciągła"], ["Sprzęgło", "Odśrodkowe"], ["Wał", "Hartowany"], ["Mieszanka paliwowa", "1:25"], ["Zbiornik paliwa", "1,0 l"], ["Typ urządzenia", "1-osobowy / 2-osobowy"], ["Maks. średnica wiertła", "300 mm"], ["Gaźnik / rozruch", "EASY SRT"], ["Przekładnia", "Prosta, smarowana smarem"], ["Złącze trzpienia i wierteł", "EURO"], ["Rama", "Stalowa, gumowana rama HEXAGON"], ["Wiertła w zestawie", "Gryzzly 100 mm, 200 mm, 300 mm"], ["Przedłużki w zestawie", "Przedłużka do świdra 80 cm, przedłużka sprężynowa 30 cm"], ["Waga", "DO_UZUPELNIENIA"]],
     zastosowanie: [],
-    akcesoria: [["Uszkodzenie wiertła", "60 zł / szt."]]
+    akcesoria: ["wiertla-glebowe"]
   }
 ];
 
-/* Cennik akcesoriów / zużycia (z ulotki) */
+/* Cennik akcesoriów i kosztów zużycia – wg dokumentów od właścicieli (październik 2026).
+   Produkty odwołują się do tych pozycji przez "akcesoria: [id, ...]".
+   pozycje: [nazwa, cena]; tabela: { naglowki: [...], wiersze: [[...], ...] } */
 var AKCESORIA = [
-  { tytul: "Korony diamentowe (zużycie)", img: "korony.webp", opis: "Opłata za zużycie koron diamentowych naliczana według średnicy i stopnia zużycia.",
-    pozycje: [["do 52 mm", "30 zł"], ["53–82 mm", "40 zł"], ["83–112 mm", "50 zł"], ["113–132 mm", "60 zł"], ["powyżej 132 mm", "70 zł"]] },
-  { tytul: "Tarcze diamentowe (zużycie)", img: "tarcze.webp", opis: "Opłata za zużycie tarczy diamentowej w zależności od średnicy.",
-    pozycje: [["do 230 mm", "20 zł"], ["231–350 mm", "30 zł"], ["powyżej 350 mm", "40 zł"]] },
-  { tytul: "Gaz i materiały spawalnicze", img: "gaz.webp", opis: "Koszt zużycia gazu oraz materiałów spawalniczych.",
-    pozycje: [["Gaz (MB 15) – 1/2 butli", "30 zł"], ["Gaz (MB 15) – pełna butla", "60 zł"], ["Drut spawalniczy", "30 zł / 1 kg"], ["Elektrody", "20 zł / 1 kg"]] },
-  { tytul: "Tarcza do ukośnicy (zużycie)", img: "tarcza-ukosnica.webp", opis: "Opłata za zużycie tarczy w pile ukosowej.",
-    pozycje: [["do 216 mm", "20 zł"], ["do 305 mm", "30 zł"]] },
-  { tytul: "Worki do odkurzacza", img: "worki.webp", opis: "Worki jednorazowe do odkurzacza przemysłowego.",
-    pozycje: [["1 szt.", "10 zł"]] },
-  { tytul: "Dysze i czyszczenie agregatu malarskiego", img: "dysza.webp", opis: "Koszt zużycia dysz lub czyszczenia torem hydraulicznym.",
-    pozycje: [["Dysza", "20 zł / szt."], ["Czyszczenie agregatu", "50 zł"]] },
-  { tytul: "Detergent do myjki ciśnieniowej", img: "detergent.webp", opis: "Koszt zużycia środka czyszczącego.",
-    pozycje: [["1 litr", "10 zł"]] },
-  { tytul: "Uszkodzenie wiertnicy glebowej", img: "wiertlo-glebowe.webp", opis: "Wymiana wiertła w wiertnicy glebowej.",
-    pozycje: [["Wiertło", "60 zł / szt."]] },
-  { tytul: "Uszkodzenie lub zagubienie sprzętu", img: "uwaga.webp", opis: "Koszt naprawy lub zakupu nowego sprzętu ustalany indywidualnie w zależności od rodzaju uszkodzenia lub zagubienia.",
+  { id: "myjka", tytul: "Akcesoria do myjki ciśnieniowej", img: "detergent.webp", opis: "Płyny i przystawki do myjki ciśnieniowej.",
+    pozycje: [["Płyn do mycia kostki / elewacji", "20 zł / 1 l"], ["Płyn do mycia dachów", "20 zł / 1 l"], ["Pianownica", "10 zł / doba"], ["Przystawka do mycia kostki", "15 zł / doba"]] },
+  { id: "spawalnicze", tytul: "Materiały spawalnicze i butle gazowe", img: "gaz.webp", opis: "Druty, elektrody oraz wynajem i wymiana butli gazowych.",
+    pozycje: [["Drut MIG/MAG 1,0 mm", "zapytaj o cenę"], ["Elektrody rutylowe 2,5 mm", "15 zł / 1 kg"], ["Elektrody rutylowe 3,2 mm", "15 zł / 1 kg"], ["Elektrody zasadowe 2,5–3,2 mm", "25 zł / 1 kg"],
+      ["Wynajem butli 8 l bez gazu", "10 zł / doba"], ["Wynajem butli 8 l z reduktorem", "15 zł / doba"], ["Wymiana pustej butli CO₂ na pełną", "wg kosztu dostawcy"], ["Wymiana pustej butli z mieszanką Ar/CO₂", "wg kosztu dostawcy"], ["Wymiana pustej butli z argonem", "wg kosztu dostawcy"]] },
+  { id: "pila-pierscieniowa", tytul: "Piła pierścieniowa – zużycie tarczy", img: "tarcze.webp", opis: "Opłata za zużycie tarczy (pierścienia) piły pierścieniowej.",
+    pozycje: [["Zużycie 0,2 mm", "10 zł"], ["Zużycie 0,5 mm", "25 zł"], ["Zużycie 1 mm", "50 zł"], ["Zużycie 1,5 mm", "75 zł"], ["Zużycie 2 mm", "100 zł"], ["Wyłamanie segmentu", "40 zł / segment"], ["Zniszczenie tarczy", "550 zł"]] },
+  { id: "tarcza-305", tytul: "Tarcza 305 mm do pilarki ukosowej", img: "tarcza-ukosnica.webp", opis: "Cennik zużycia i zniszczenia tarczy 305 mm (ceny brutto).",
+    pozycje: [["Zwykłe zużycie podczas prawidłowej pracy", "0 zł"], ["Niewielkie stępienie tarczy wymagające ostrzenia", "30–50 zł"], ["Uszkodzenie kilku zębów", "50–80 zł"], ["Poważne uszkodzenie tarczy, np. wykrzywienie lub pęknięcie", "120–160 zł"], ["Zniszczenie tarczy uniemożliwiające dalszą pracę", "koszt nowej tarczy wg faktury"]] },
+  { id: "korony", tytul: "Korony diamentowe – zużycie", img: "korony.webp", opis: "Cennik zużycia koron do wiertnicy diamentowej, liczony co 0,5 mm zużycia segmentu.",
+    tabela: { naglowki: ["Zużycie", "Korona 52–82 mm", "Korona 92–122 mm", "Korona 132–162 mm", "Korona 172–200 mm"],
+      wiersze: [["0,5 mm", "35 zł", "45 zł", "60 zł", "80 zł"], ["1,0 mm", "70 zł", "90 zł", "120 zł", "160 zł"], ["1,5 mm", "105 zł", "135 zł", "180 zł", "240 zł"], ["2,0 mm", "140 zł", "180 zł", "240 zł", "320 zł"],
+        ["2,5 mm", "175 zł", "225 zł", "300 zł", "400 zł"], ["3,0 mm", "210 zł", "270 zł", "360 zł", "480 zł"], ["3,5 mm", "245 zł", "315 zł", "420 zł", "560 zł"], ["4,0 mm", "280 zł", "360 zł", "480 zł", "640 zł"]] } },
+  { id: "odkurzacz", tytul: "Akcesoria do odkurzacza", img: "worki.webp", opis: "Worki, szczotka i czyszczenie odkurzacza.",
+    pozycje: [["Worek do odkurzacza", "10 zł / szt."], ["Turbo szczotka", "15 zł / doba"], ["Czyszczenie odkurzacza używanego bez worków", "50 zł"]] },
+  { id: "agregat", tytul: "Akcesoria do agregatu malarskiego", img: "dysza.webp", opis: "Wynajem akcesoriów i czyszczenie agregatu.",
+    pozycje: [["Dysza", "20 zł / doba"], ["Przedłużka 50 cm", "10 zł / doba"], ["Czyszczenie wypożyczonego agregatu", "od 100 zł (zależnie od zanieczyszczenia)"]] },
+  { id: "wiertla-glebowe", tytul: "Wiertła do wiertnicy glebowej", img: "wiertlo-glebowe.webp", opis: "Cennik zużycia i zniszczenia wierteł.",
+    tabela: { naglowki: ["Średnica wiertła", "Zużycie za dobę", "Zniszczenie całego wiertła"],
+      wiersze: [["100 mm", "5 zł / doba", "150 zł"], ["200 mm", "8 zł / doba", "250 zł"], ["300 mm", "12 zł / doba", "350 zł"]] } },
+  { id: "uszkodzenie", tytul: "Uszkodzenie lub zagubienie sprzętu", img: "uwaga.webp", opis: "Koszt naprawy lub zakupu nowego sprzętu ustalany indywidualnie w zależności od rodzaju uszkodzenia lub zagubienia.",
     pozycje: [] }
 ];

@@ -264,3 +264,27 @@ body.menu-open .to-top{opacity:0!important;visibility:hidden!important}
  .to-top{right:.75rem;bottom:calc(.75rem + 62px + .6rem)}
 }
 @media (prefers-reduced-motion:reduce){.to-top{transition:none}}
+
+/* =========== AKCESORIA v2: tabele zużycia =========== */
+.acc-wide{grid-column:span 2}
+.acc-tw{margin:0 1rem 1rem;overflow:hidden;border:1px solid var(--line)}
+.acc-t{width:100%;border-collapse:collapse;font-size:.85rem}
+.acc-t thead th{background:var(--red);color:#fff;font:700 .7rem Inter;text-transform:uppercase;padding:.55rem .5rem;text-align:center}
+.acc-t thead th:first-child{text-align:left}
+.acc-t td,.acc-t tbody th{padding:.5rem;border-top:1px solid var(--line);text-align:center}
+.acc-t tbody th{text-align:left;font-weight:700;white-space:nowrap}
+.acc-t td{color:var(--red);font-weight:700}
+.acc-t tbody tr:nth-child(even){background:#faf8f7}.acc-t tbody tr:hover{background:#ffeaea}
+.pacc ul{list-style:none;padding:0;margin:0 0 1rem}.pacc li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--line);font-size:.9rem}.pacc li b{color:var(--red);text-align:right}
+.pacc .acc-tw{margin:0 0 1rem}
+.acc li b{text-align:right}.acc li{gap:1rem}
+@media (max-width:1000px){.acc-wide{grid-column:1/-1}}
+@media (max-width:760px){
+ .acc-wide{grid-column:auto}
+ .acc-tw{border:0;margin:0 .6rem .8rem}
+ .acc-t,.acc-t tbody,.acc-t tr{display:block;width:100%}.acc-t thead{display:none}
+ .acc-t tr{display:grid;grid-template-columns:1fr 1fr;gap:.2rem .8rem;border:1px solid var(--line);border-left:4px solid var(--red);margin-bottom:.5rem;padding:.5rem .7rem;background:#fff!important}
+ .acc-t tbody th{grid-column:1/-1;border:0;padding:0 0 .3rem;border-bottom:1px solid var(--line);font-size:.9rem}
+ .acc-t td{border:0;padding:.15rem 0;text-align:left;display:block}
+ .acc-t td:before{content:attr(data-l);display:block;font:600 .66rem Inter;color:var(--muted);text-transform:uppercase}
+}
